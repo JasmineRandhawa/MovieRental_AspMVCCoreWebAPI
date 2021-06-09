@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MovieRental.Models.Customer>
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Customers</h1>
+    <div class="form-group" style="width: 180px; text-align: start">
+        @Html.ActionLink(" + New Customer", "New", "Customer", null, new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birth Date</th>
+                <th>Membership Type</th>
+                <th>Discount Rate</th>
+                <th>Subscribed To NewsLetter?</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in @Model.ToList())
+            {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { id = customer.Id })</td>
+                <td>@customer.Email</td>
+                @if (customer.BirthDate != null)
+                {
+                <td>@(((DateTime)customer.BirthDate).ToString("d MMM yyyy"))</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                <td>@customer.MembershipType.Name</td>
+                <td>@customer.MembershipType.DiscountRate%</td>
+                @if (customer.IsSubscribedToNewsLetter)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                <td>@Html.ActionLink("Delete", "Delete", "Customer", new { id = customer.Id }) </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

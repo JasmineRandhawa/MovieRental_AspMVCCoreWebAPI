@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MovieRental.Models.Movie>
+    @{
+        ViewData["Title"] = "Movies";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<div class="text-center">
+    <h1 class="display-4">Movies</h1>
+    <div class="form-group" style="width: 180px; text-align: start">
+        @Html.ActionLink(" + New Movie", "New", "Movie", null, new { @class = "btn btn-primary" })
+    </div>
+    <br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Number Of Stock</th>
+                <th>Release Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in @Model.ToList())
+            {
+            <tr>
+                <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id })</td>
+                <td>@movie.Genre.Name</td>
+                <td>@movie.NumberOfStock</td>
+                <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Movie", new { id = movie.Id }) </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
