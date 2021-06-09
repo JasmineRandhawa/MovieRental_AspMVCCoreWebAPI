@@ -8,7 +8,6 @@ public class BirthDateValidation : ValidationAttribute
 {
     protected override ValidationResult IsValid(object value, System.ComponentModel.DataAnnotations.ValidationContext validationContext)
     {
-
         CustomerDto customerDto;
         Customer customer;
         try

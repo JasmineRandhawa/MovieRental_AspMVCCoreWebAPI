@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\vs\\MVCAPI\\MovieRental.csproj": {}
+    "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj": {}
   },
   "projects": {
-    "C:\\vs\\MVCAPI\\MovieRental.csproj": {
+    "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\vs\\MVCAPI\\MovieRental.csproj",
+        "projectUniqueName": "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj",
         "projectName": "MovieRental",
-        "projectPath": "C:\\vs\\MVCAPI\\MovieRental.csproj",
+        "projectPath": "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj",
         "packagesPath": "C:\\Users\\jasmi\\.nuget\\packages\\",
-        "outputPath": "C:\\vs\\MVCAPI\\obj\\",
+        "outputPath": "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

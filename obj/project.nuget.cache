@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KzOZkR9oGgK5BJPsyJNb6oJqOleOuwFIMrKyxIx2OpWlwdXCmOWscJ5d2actqKzN0p1h3i6+4QqpjDslpKC8UQ==",
+  "dgSpecHash": "PjodTXYxubVYV9VunJwKzs4TBqreeXErWwf5WwyiRZApaSVqJsvOKBAzjH8QJVvy+UCdNzwTTdm6bCQmuoyitA==",
   "success": true,
-  "projectFilePath": "C:\\vs\\MVCAPI\\MovieRental.csproj",
+  "projectFilePath": "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jasmi\\.nuget\\packages\\automapper\\8.0.0\\automapper.8.0.0.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
