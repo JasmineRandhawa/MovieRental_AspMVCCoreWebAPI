@@ -67,6 +67,10 @@ namespace MovieRental.Controllers
             }
             if (movie.Id == 0)
             {
+                var maxid = 1;
+                if (_context.Movies.ToList().Count > 0)
+                maxid = _context.Movies.Select(c => c.Id).Max() + 1;
+                movie.Id = maxid;
                 _context.Movies.Add(movie);
             }
             else
@@ -83,13 +87,13 @@ namespace MovieRental.Controllers
             return RedirectToAction("Index", "Movie");
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Remove(int id)
         {
-            Movie movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+           List<Movie> movies = _context.Movies.Where(c => c.Id == id).ToList();
 
-            if (movie == null)
+            if (movies==null || movies.Count == 0)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-
+            foreach(Movie movie in movies)
             _context.Movies.Remove(movie);
 
             _context.SaveChanges();

@@ -22,7 +22,7 @@ namespace MovieRental.Controllers.API
         [HttpGet]
         public IEnumerable<CustomerDto> GetAll()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            return _context.Customers.ToList().Select(m=>Mapper.Map<Customer,CustomerDto>(m));
         }
 
         //GET /api/customer/1
@@ -69,10 +69,9 @@ namespace MovieRental.Controllers.API
             /* if (!string.IsNullOrEmpty(customerDto.Name) && !customerDto.Name.Equals(customerInDb.Name))
                 customerInDb.Name = customerDto.Name;
 
-            if (customerDto.MembershipTypeId != customerInDb.MembershipTypeId)
+            if (customerDto.MembershipTypeId != cus tomerInDb.MembershipTypeId)
             {
                 customerInDb.MembershipTypeId = customerDto.MembershipTypeId;
-                customerInDb.MembershipType = _context.MembershipTypes.SingleOrDefault(m => m.Id == customerDto.MembershipTypeId);
             }
          
             if (!string.IsNullOrEmpty(customerDto.Email) && !customerDto.Email.Equals(customerInDb.Email))
@@ -92,7 +91,7 @@ namespace MovieRental.Controllers.API
         //DELETE api/customer/1
         [HttpDelete]
   
-        public void Deleter(int id)
+        public void Delete(int id)
         {
             var customer = _context.Customers.Single(m => m.Id == id);
             if (customer == null)

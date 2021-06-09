@@ -85,15 +85,14 @@ namespace MovieRental.Controllers
         }
 
 
-        public IActionResult Delete(int id)
+        public IActionResult Remove(int id)
         {
-            Customer customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+            List<Customer> customers = _context.Customers.Where(c => c.Id == id).ToList();
 
-            if (customer == null)
+            if (customers == null || customers.Count == 0)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-
-            _context.Customers.Remove(customer);
-
+            foreach (Customer customer in customers)
+                _context.Customers.Remove(customer);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Customer");

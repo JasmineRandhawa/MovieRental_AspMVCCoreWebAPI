@@ -14,6 +14,7 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Birth Date</th>
@@ -27,11 +28,12 @@
             @foreach (var customer in @Model.ToList())
             {
             <tr>
+                <td>@customer.Id</td>
                 <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { id = customer.Id })</td>
                 <td>@customer.Email</td>
                 @if (customer.BirthDate != null)
                 {
-                <td>@(((DateTime)customer.BirthDate).ToString("d MMM yyyy"))</td>
+                    <td>@(((DateTime)customer.BirthDate).ToString("d MMM yyyy"))</td>
                 }
                 else
                 {
@@ -47,7 +49,7 @@
                 {
                     <td>No</td>
                 }
-                <td>@Html.ActionLink("Delete", "Delete", "Customer", new { id = customer.Id }) </td>
+                <td>@Html.ActionLink("Delete", "Remove", "Customer", new { id = customer.Id }) </td>
             </tr>
             }
         </tbody>

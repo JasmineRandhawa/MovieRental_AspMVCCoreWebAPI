@@ -13,6 +13,7 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Genre</th>
                 <th>Number Of Stock</th>
@@ -24,11 +25,12 @@
             @foreach (var movie in @Model.ToList())
             {
             <tr>
+                <td>@movie.Id</td>
                 <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id })</td>
                 <td>@movie.Genre.Name</td>
                 <td>@movie.NumberOfStock</td>
                 <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
-                <td>@Html.ActionLink("Delete", "Delete", "Movie", new { id = movie.Id }) </td>
+                <td>@Html.ActionLink("Delete", "Remove", "Movie", new { id = movie.Id }) </td>
             </tr>
             }
         </tbody>

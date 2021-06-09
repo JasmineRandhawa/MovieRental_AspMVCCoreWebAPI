@@ -10,6 +10,8 @@ namespace MovieRental.Dtos
         {
             CreateMap<CustomerDto, Customer>();
             CreateMap<CustomerDto,Customer>();
+            CreateMap<MovieDto, Movie>();
+            CreateMap<Movie, MovieDto>();
         }
 
     }
