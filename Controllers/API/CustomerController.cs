@@ -5,6 +5,7 @@ using System.Net;
 using System.Web.Http;
 using AutoMapper;
 using MovieRental.Dtos;
+using System.Data.Entity;
 using MovieRental.Models;
 
 namespace MovieRental.Controllers.API
@@ -22,14 +23,14 @@ namespace MovieRental.Controllers.API
         [HttpGet]
         public IEnumerable<CustomerDto> GetAll()
         {
-            return _context.Customers.ToList().Select(m=>Mapper.Map<Customer,CustomerDto>(m));
+            return _context.Customers.Include(c => c.MembershipType).ToList().Select(m => Mapper.Map<Customer, CustomerDto>(m)).ToList(); 
         }
 
         //GET /api/customer/1
         [HttpGet]
         public CustomerDto Get(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).ToList().SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -49,6 +50,8 @@ namespace MovieRental.Controllers.API
             _context.SaveChanges();
 
             customerDto.Id = customer.Id;
+            customer.MembershipType = _context.MembershipTypes.SingleOrDefault(c => c.Id == customer.MembershipTypeId);
+            customerDto.MembershipType = Mapper.Map<MembershipType, MembershipTypeDto>(customer.MembershipType);
             return customerDto;
         }
 
@@ -59,9 +62,9 @@ namespace MovieRental.Controllers.API
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var customerInDb = _context.Customers.Single(m => m.Id == id);
-            
-            if(customerInDb == null)
+            var customerInDb = _context.Customers.Include(c => c.MembershipType).ToList().SingleOrDefault(c => c.Id == id);
+
+            if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
@@ -84,7 +87,8 @@ namespace MovieRental.Controllers.API
                 customerInDb.BirthDate = customerDto.BirthDate;
 */
             _context.SaveChanges();
-
+            customerInDb.MembershipType = _context.MembershipTypes.SingleOrDefault(c => c.Id == customerInDb.MembershipTypeId);
+            customerDto.MembershipType = Mapper.Map<MembershipType, MembershipTypeDto>(customerInDb.MembershipType);
             return customerDto;
         }
 

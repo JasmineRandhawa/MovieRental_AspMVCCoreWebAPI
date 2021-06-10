@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace MovieRental.Dtos
 {
@@ -11,6 +12,7 @@ namespace MovieRental.Dtos
         [StringLength(255)]
         public string Name { get; set; }
 
+        public GenreDto Genre { get; set; }
 
         [Required(ErrorMessage = "Genre field is required")]
         public int? GenreId { get; set; }

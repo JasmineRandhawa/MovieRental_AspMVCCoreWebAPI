@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using AutoMapper;
+﻿using AutoMapper;
 using MovieRental.Models;
 
 namespace MovieRental.Dtos
@@ -9,10 +8,10 @@ namespace MovieRental.Dtos
         public MappingProfile()
         {
             CreateMap<CustomerDto, Customer>();
-            CreateMap<CustomerDto,Customer>();
+            CreateMap<Customer, CustomerDto>();
             CreateMap<MovieDto, Movie>();
             CreateMap<Movie, MovieDto>();
+            CreateMap<MembershipType, MembershipTypeDto>();
         }
-
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Http;
 using AutoMapper;
 using MovieRental.Dtos;
 using MovieRental.Models;
+using System.Data.Entity;
 
 namespace MovieRental.Controllers.API
 {
@@ -22,14 +23,14 @@ namespace MovieRental.Controllers.API
         [HttpGet]
         public IEnumerable<MovieDto> GetAll()
         {
-            return _context.Movies.ToList().Select(m => Mapper.Map<Movie, MovieDto>(m));
+            return _context.Movies.Include(c => c.Genre).ToList().Select(m => Mapper.Map<Movie, MovieDto>(m)).ToList();
         }
 
         //GET /movie/get/1
         [HttpGet]
         public MovieDto Get(int id)
         {
-            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movies.Include(c => c.Genre).ToList().SingleOrDefault(c => c.Id == id);
 
             if (movie == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -59,9 +60,9 @@ namespace MovieRental.Controllers.API
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var movieInDb = _context.Movies.Single(m => m.Id == id);
-            
-            if(movieInDb == null)
+            var movieInDb = _context.Movies.Include(c => c.Genre).ToList().SingleOrDefault(c => c.Id == id);
+
+            if (movieInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
            Mapper.Map<MovieDto, Movie>(movieDto, movieInDb);

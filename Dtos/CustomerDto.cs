@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace MovieRental.Dtos
 {
@@ -16,6 +17,8 @@ namespace MovieRental.Dtos
         public string Email { get; set; }
 
         public bool IsSubscribedToNewsLetter { get; set; }
+
+        public MembershipTypeDto MembershipType{ get; set; }
 
         [Required(ErrorMessage ="Membership Type field is required")]
         public int  MembershipTypeId { get; set; }
