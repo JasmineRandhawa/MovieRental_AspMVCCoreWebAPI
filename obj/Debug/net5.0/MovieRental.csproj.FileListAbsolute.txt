@@ -1195,3 +1195,4 @@ C:\vs\GitHub\MovieRental_AspMVCCoreWebAPI\obj\Debug\net5.0\ref\MovieRental.dll
 C:\vs\GitHub\MovieRental_AspMVCCoreWebAPI\obj\Debug\net5.0\MovieRental.pdb
 C:\vs\GitHub\MovieRental_AspMVCCoreWebAPI\obj\Debug\net5.0\MovieRental.genruntimeconfig.cache
 C:\vs\GitHub\MovieRental_AspMVCCoreWebAPI\obj\Debug\net5.0\MovieRental.csproj.AssemblyReference.cache
+C:\vs\GitHub\MovieRental_AspMVCCoreWebAPI\bin\Debug\net5.0\libman.json

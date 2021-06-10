@@ -33,8 +33,11 @@
                     @*<td><button data-movie-id="@movie.Id" class="btn btn-secondary js-delete" style="height: 40px; width: 40px;
                         border:hidden;background:none;" onclick="location.href='@Url.Action("Remove", "Movie", new { id = movie.Id })'">
                         <b><label style="font-size: medium;color:red;">X</label></b></button></td>*@
-                    <td><button data-movie-id="@movie.Id" value="Delete" class="btn-link js-delete" style="height: 40px; width: 40px; border:hidden;background:none;">
-                    <b><label style="font-size: medium;color:red;">X</label></b></button></td>
+                    <td>
+                        <button data-movie-id="@movie.Id" value="Delete" class="btn js-delete" style="height: 40px; width: 40px; font-size: medium; color: red; border: hidden; background: none;">
+                            X
+                        </button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -42,6 +45,8 @@
 </div>
 @section scripts
 {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/Scripts/bootbox.js"></script>pt>
     <script src="~/js/movie.js"></script>
 }

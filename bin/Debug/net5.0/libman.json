@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+    "libraries": [
+        {
+            "provider": "filesystem",
+            "library": "C:\\Users\\jasmi\\.nuget\\packages\\bootbox.js\\5.5.2\\content\\Scripts",
+            "destination": "wwwroot/lib/Scripts/"
+        }
+    ]
+}
