@@ -11,7 +11,7 @@
         @Html.ActionLink(" + New Customer", "New", "Customer", null, new { @class = "btn btn-primary" })
     </div>
     <br />
-    <table class="table table-bordered table-hover">
+    <table id="customer" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -49,10 +49,17 @@
                 {
                     <td>No</td>
                 }
-                <td><button class="btn btn-secondary" style="height: 40px; width: 40px; " onclick="location.href='@Url.Action("Remove", "Customer", new { id = customer.Id })'">
-                    <label style="font-size: medium;color: red;">X</label></button></td>
+                @*<td><button data-customer-id="@customer.Id" class="btn btn-secondary js-delete" style="height: 40px; width: 40px;  border:hidden;background:none;" onclick="location.href='@Url.Action("Remove", "Customer", new { id = customer.Id })'">
+                <b><label style="font-size: medium;color:red;">X</label></b></button></td>*@
+                <td> <button data-customer-id="@customer.Id" value="Delete" class="btn-link js-delete" style="height: 40px; width: 40px; border:hidden;background:none;">
+                 <b><label style="font-size: medium;color:red;">X</label></b></button></td>
             </tr>
             }
         </tbody>
     </table>
 </div>
+@section scripts
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/customer.js"></script>    
+}

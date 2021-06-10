@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<MovieRental.Models.Movie>
-    @{
-        ViewData["Title"] = "Movies";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+@{
+    ViewData["Title"] = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <div class="text-center">
     <h1 class="display-4">Movies</h1>
@@ -10,7 +10,7 @@
         @Html.ActionLink(" + New Movie", "New", "Movie", null, new { @class = "btn btn-primary" })
     </div>
     <br />
-    <table class="table table-bordered table-hover">
+    <table id="movie" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -24,16 +24,24 @@
         <tbody>
             @foreach (var movie in @Model.ToList())
             {
-            <tr>
-                <td>@movie.Id</td>
-                <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id })</td>
-                <td>@movie.Genre.Name</td>
-                <td>@movie.NumberOfStock</td>
-                <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
-                <td><button class="btn btn-secondary" style="height: 40px; width: 40px; " onclick="location.href='@Url.Action("Remove", "Movie", new { id = movie.Id })'">
-                        <label style="font-size: medium;color: red;">X</label></button></td>
-            </tr>
+                <tr>
+                    <td>@movie.Id</td>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id })</td>
+                    <td>@movie.Genre.Name</td>
+                    <td>@movie.NumberOfStock</td>
+                    <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
+                    @*<td><button data-movie-id="@movie.Id" class="btn btn-secondary js-delete" style="height: 40px; width: 40px;
+                        border:hidden;background:none;" onclick="location.href='@Url.Action("Remove", "Movie", new { id = movie.Id })'">
+                        <b><label style="font-size: medium;color:red;">X</label></b></button></td>*@
+                    <td><button data-movie-id="@movie.Id" value="Delete" class="btn-link js-delete" style="height: 40px; width: 40px; border:hidden;background:none;">
+                    <b><label style="font-size: medium;color:red;">X</label></b></button></td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
+@section scripts
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/movie.js"></script>
+}
