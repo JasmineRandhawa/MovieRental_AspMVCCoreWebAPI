@@ -95,6 +95,10 @@
             "automapper": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "jquery.datatables": {
+              "target": "Package",
+              "version": "[1.10.11, )"
             }
           },
           "imports": [

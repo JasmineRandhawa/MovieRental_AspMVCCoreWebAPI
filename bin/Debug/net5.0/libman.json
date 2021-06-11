@@ -1,11 +1,27 @@
 {
   "version": "1.0",
   "defaultProvider": "cdnjs",
-    "libraries": [
-        {
-            "provider": "filesystem",
-            "library": "C:\\Users\\jasmi\\.nuget\\packages\\bootbox.js\\5.5.2\\content\\Scripts",
-            "destination": "wwwroot/lib/Scripts/"
-        }
-    ]
+  "libraries": [
+    {
+      "provider": "filesystem",
+      "library": "C:\\Users\\jasmi\\.nuget\\packages\\bootbox.js\\5.5.2\\content\\Scripts",
+      "destination": "wwwroot/lib/Scripts/"
+    },
+    {
+      "provider": "filesystem",
+      "library": "C:\\Users\\jasmi\\.nuget\\packages\\jquery.datatables\\1.10.11\\Content\\Content\\DataTables\\css",
+      "destination": "wwwroot/lib/css/",
+      "files": [
+        "dataTables.bootstrap.css"
+      ]
+    },
+    {
+      "provider": "filesystem",
+      "library": "C:\\Users\\jasmi\\.nuget\\packages\\jquery.datatables\\1.10.11\\Content\\Scripts\\DataTables",
+      "destination": "wwwroot/lib/DataTables/",
+      "files": [
+        "dataTables.buttons.js"
+      ]
+    }
+  ]
 }

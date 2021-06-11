@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E92h5L7Iqhuo7KVrqzl2L+cyLbm0WKiWG8OmJYvaIZWJoE6U1GvSesA3F/yQbwK/Z406tOgwRqVQaxXaWoxVnA==",
+  "dgSpecHash": "BsqWtIgQT+pVOTk08myJfKDu0wuCxBlVr4ECTfx6Sr6Y4pFkVhW8vdshQIhKvIsbTMN9LmYDV+CUgQcAiZnScg==",
   "success": true,
   "projectFilePath": "C:\\vs\\GitHub\\MovieRental_AspMVCCoreWebAPI\\MovieRental.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\jasmi\\.nuget\\packages\\bootbox.js\\5.5.2\\bootbox.js.5.5.2.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\jquery\\1.12.4\\jquery.1.12.4.nupkg.sha512",
+    "C:\\Users\\jasmi\\.nuget\\packages\\jquery.datatables\\1.10.11\\jquery.datatables.1.10.11.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
     "C:\\Users\\jasmi\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
