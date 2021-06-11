@@ -23,24 +23,6 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var movie in @Model.ToList())
-            {
-                <tr>
-                    <td>@movie.Id</td>
-                    <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id })</td>
-                    <td>@movie.Genre.Name</td>
-                    <td>@movie.NumberOfStock</td>
-                    <td>@movie.ReleaseDate.ToString("d MMM yyyy")</td>
-                    @*<td><button data-movie-id="@movie.Id" class="btn btn-secondary js-delete" style="height: 40px; width: 40px;
-                        border:hidden;background:none;" onclick="location.href='@Url.Action("Remove", "Movie", new { id = movie.Id })'">
-                        <b><label style="font-size: medium;color:red;">X</label></b></button></td>*@
-                    <td>
-                        <button data-movie-id="@movie.Id" value="Delete" class="btn js-delete" style="height: 40px; width: 40px; font-size: medium; color: red; border: hidden; background: none;">
-                            X
-                        </button>
-                    </td>
-                </tr>
-            }
         </tbody>
     </table>
 </div>

@@ -23,39 +23,6 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var customer in @Model.ToList())
-            {
-                <tr>
-                    <td>@customer.Id</td>
-                    <td>@Html.ActionLink(customer.Name, "Edit", "Customer", new { id = customer.Id })</td>
-                    <td>@customer.Email</td>
-                    @if (customer.BirthDate != null)
-                    {
-                        <td>@(((DateTime)customer.BirthDate).ToString("d MMM yyyy"))</td>
-                    }
-                    else
-                    {
-                        <td></td>
-                    }
-                    <td>@customer.MembershipType.Name</td>
-                    <td>@customer.MembershipType.DiscountRate%</td>
-                    @if (customer.IsSubscribedToNewsLetter)
-                    {
-                        <td>Yes</td>
-                    }
-                    else
-                    {
-                        <td>No</td>
-                    }
-                    @*<td><button data-customer-id="@customer.Id" class="btn btn-secondary js-delete" style="height: 40px; width: 40px;  border:hidden;background:none;" onclick="location.href='@Url.Action("Remove", "Customer", new { id = customer.Id })'">
-                        <b><label style="font-size: medium;color:red;">X</label></b></button></td>*@
-                    <td>
-                        <button data-customer-id="@customer.Id" value="Delete" class="btn js-delete" style="height: 40px; width: 40px; font-size: medium; color: red; border: hidden; background: none;">
-                            X
-                        </button>
-                    </td>
-                </tr>
-            }
         </tbody>
     </table>
 </div>

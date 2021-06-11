@@ -24,8 +24,9 @@ namespace MovieRental.Controllers
 
         public ViewResult Index()
         {
-            List<Movie> moviesList = _context.Movies.Include(m => m.Genre).ToList();
-            return View("Index", moviesList);
+            //List<Movie> moviesList = _context.Movies.Include(m => m.Genre).ToList();
+            //return View("Index", moviesList);
+            return View();
         }
 
         public ViewResult New()

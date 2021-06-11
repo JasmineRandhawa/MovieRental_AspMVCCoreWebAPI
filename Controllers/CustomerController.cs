@@ -21,8 +21,9 @@ namespace MovieRental.Controllers
         }
         public ViewResult Index()
         {
-            List<Customer> customerList = _context.Customers.Include(c => c.MembershipType).ToList();
-            return View("Index",customerList);
+            //List<Customer> customerList = _context.Customers.Include(c => c.MembershipType).ToList();
+            //return View("Index",customerList);
+            return View();
         }
         public ViewResult New()
         {
